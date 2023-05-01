@@ -1,6 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* font-family: 'Roboto' , sans-serif;  need to import roboto font */
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.nav__link--primary {
+  border: 2px solid rgba(255, 0, 0, 0.349);
+  border-radius: 4px;
+  transition: 0.35s ease-in-out all;
+}
+
+.nav__link--primary:hover {
+  background-color: rgba(255, 0, 0, 0.349);
+}
+
+.container {
+  padding: 96px 0;
+}
+
+.logo__header {
+  font-weight: 700;
+  font-size: 24px;
+}
+.logo__header {
+  color: #fff;
+}
+
+.logo__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav__container {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  padding: 48px 64px;
+  background-color: #000000f2;
+  height: 8vh;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 16px;
+}
+
+.movie__header {
+  text-align: center;
+  background-image: url(./assets/cinemabg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.movie__title {
+  font-weight: 600;
+  font-size: 36px;
+  margin-bottom: 36px;
+}
+.input__wrapper {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+input {
+  color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  max-width: 800px;
+  height: 60px;
+  font-size: 24px;
+  padding-left: 20px;
+}
+
+.fa-film {
+  color: #fff;
+  margin-left: 8px;
+  margin-top: 4px;
 }
