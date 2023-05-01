@@ -41,9 +41,7 @@ li {
 
 .logo__header {
   font-weight: 700;
-  font-size: 24px;
-}
-.logo__header {
+  font-size: 32px;
   color: #fff;
 }
 
@@ -71,6 +69,7 @@ li {
   color: #fff;
   text-decoration: none;
   padding: 4px 16px;
+  font-size: 20px;
 }
 
 .movie__header {
@@ -108,4 +107,5 @@ input {
   color: #fff;
   margin-left: 8px;
   margin-top: 4px;
+  font-size: 24px;
 }
