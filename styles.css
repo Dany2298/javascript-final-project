@@ -109,3 +109,11 @@ input {
   margin-top: 4px;
   font-size: 24px;
 }
+
+.fa-magnifying-glass {
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  font-size: 32px;
+  color: #242424;
+}
