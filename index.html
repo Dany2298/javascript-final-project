@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinestalgia</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -26,7 +27,7 @@
           <ul class="nav__links">
             <li><a href="#" class="nav__link nav__link--hover">Home</a></li>
             <li><a href="" class="nav__link nav__link--hover">Movies</a></li>
-            <li><a href="" class="nav__link nav__link--primary ">Contact</a></li>
+            <li><a href="" class="nav__link nav__link--primary">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -35,10 +36,18 @@
         <div class="container">
           <div class="row">
             <h1 class="movie__heading">Browse Our Movies</h1>
-            <div class="input__wrapper">
-              <input type="text" placeholder="Search by Movie Title" />
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            <form id="search__form">
+              <div class="input__wrapper">
+                <input
+                  type="text"
+                  name="searchQuery"
+                  placeholder="Search by Movie Title"
+                />
+                <div class="icon__wrapper">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -46,34 +55,26 @@
     <section class="main">
       <div class="row">
         <div class="movie__main--wrapper">
-        <div class="container">
-          <h1 class="movie__results"> Results of 'Power'</h1>
-          <div class="movies">
-            <div class="movie">
-              <figure class="movie__wrapper">
-                <img src="./assets/power.jpg" class="movie__img" alt="">
-                <h5 class="movie__hd">HD</h5>
-              </figure>
-              <h2 class="movie__title">Power</h2>
-              <h4 class="movie__year">2016</h4>
-              
+          <div class="container">
+            <h1 class="movie__results">Results of 'Power'</h1>
+            <div class="movies">
+              <div class="movie">
+                <figure class="movie__wrapper">
+                  <img src="./assets/power.jpg" class="movie__img" alt="" />
+                  <h5 class="movie__hd">HD</h5>
+                </figure>
+                <h2 class="movie__title">Power</h2>
+                <h4 class="movie__year">2016</h4>
+              </div>
+              <div class="movie">
+                <figure class="movie__wrapper">
+                  <img src="./assets/power.jpg" class="movie__img" alt="" />
+                  <h5 class="movie__hd">HD</h5>
+                </figure>
+                <h2 class="movie__title">Power</h2>
+                <h4 class="movie__year">2016</h4>
+              </div>
             </div>
-            <div class="movie">
-              <figure class="movie__wrapper">
-                <img src="./assets/power.jpg" class="movie__img" alt="">
-                <h5 class="movie__hd">HD</h5>
-              </figure>
-              <h2 class="movie__title">Power</h2>
-              <h4 class="movie__year">2016</h4>
-            </div>
-            <div class="movie">
-              <figure class="movie__wrapper">
-                <img src="./assets/power.jpg" class="movie__img" alt="">
-              </figure>
-              <h2 class="movie__title">Power</h2>
-              <h4 class="movie__year">2016</h4>
-            </div>
-          </div>
           </div>
         </div>
       </div>
