@@ -122,6 +122,12 @@ input {
   right: 24px;
   font-size: 32px;
   color: #242424;
+  cursor: pointer;
+}
+
+.fa-magnifying-glass:hover {
+  color: rgba(129, 9, 9, 0.781);
+  transform: scale(1.125);
 }
 
 .movies {
@@ -206,4 +212,8 @@ input {
   position: absolute;
   background: rgba(255, 217, 0, 0.4);
   padding: 2px;
+}
+
+.movie__results {
+  font-size: 32px;
 }

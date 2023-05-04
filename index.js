@@ -35,8 +35,11 @@ async function main() {
   // Function to search movies data by title
 
   const searchMovie = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+    if (event) {
+      event.preventDefault();
+    }
+
+    const formData = new FormData(document.getElementById("search__form"));
     const query = formData.get("searchQuery");
 
     if (query) {
@@ -55,6 +58,8 @@ async function main() {
   // Event listener for search form submission
   const searchForm = document.querySelector("#search__form");
   searchForm.addEventListener("submit", searchMovie);
+  const searchIcon = document.getElementById("search-icon");
+  searchIcon.addEventListener("click", searchMovie);
 
   // Fetch popular movies data on page load
   await fetchPopularMovies();
