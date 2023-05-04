@@ -1,5 +1,5 @@
 async function main() {
-  const moviesEl = document.querySelector(".movies");
+  const moviesEl = document.querySelector(".movies"); //selecting the .movies class
 
   // Function to render movies data to the DOM
   const renderMovies = (data) => {
@@ -9,7 +9,7 @@ async function main() {
         (movie) =>
           `<div class="movie">
             <figure class="movie__wrapper">
-              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="movie__img" alt="" />
+              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="movie__img" alt="" /> 
               <h5 class="movie__hd">HD</h5>
             </figure>
             <h2 class="movie__title">${movie.original_title}</h2>
@@ -19,8 +19,16 @@ async function main() {
       .join("");
   };
 
+  // Function to show loading state
+  const showLoadingState = () => {
+    moviesEl.innerHTML = `<div class="movies movies__loading">
+      <i class="fas fa-spinner movies__loading--spinner"></i>
+    </div>`;
+  };
+
   // Function to fetch popular movies data
   const fetchPopularMovies = async () => {
+    showLoadingState(); // Show loading state
     const response = await fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=efb48bf9762efb858b54c3ebab5b98b7"
     );
@@ -33,12 +41,11 @@ async function main() {
   };
 
   // Function to search movies data by title
-
   const searchMovie = async (event) => {
     if (event) {
       event.preventDefault();
     }
-
+    showLoadingState(); // Show loading state
     const formData = new FormData(document.getElementById("search__form"));
     const query = formData.get("searchQuery");
 

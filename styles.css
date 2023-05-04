@@ -194,7 +194,7 @@ input {
 }
 
 .nav__link--hover {
-  transition: 300ms ease-in-out all;
+  transition: 500ms ease-in-out all;
 }
 
 .movie__img {
@@ -216,6 +216,20 @@ input {
 
 .movie__results {
   font-size: 32px;
+}
+
+.fa-spinner {
+  animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {
