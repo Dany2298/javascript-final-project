@@ -217,3 +217,9 @@ input {
 .movie__results {
   font-size: 32px;
 }
+
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+  }
+}
