@@ -70,10 +70,6 @@ async function main(filter) {
     }
   };
 
-  function filterMovies(event) {
-    main(event.target.value);
-  }
-
   // Event listener for search form submission
   searchForm.addEventListener("submit", searchMovie);
 
@@ -81,6 +77,10 @@ async function main(filter) {
 
   // Fetch popular movies data on page load
   await fetchPopularMovies();
+}
+
+function filterMovies(event) {
+  event.target.value;
 }
 
 main();
