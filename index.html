@@ -57,6 +57,13 @@
         <div class="movie__main--wrapper">
           <div class="container">
             <h1 class="movie__results">Popular Movies</h1>
+            <div class="filter__wrapper">
+              <select id="filter" onchange="filterMovies(event)">
+                <option value="" disabled selected>Sort Movie</option>
+                <option value="OLD_TO_NEW">Year, Oldest to Newest</option>
+                <option value="NEW_TO_OLD">Year, Newest to Oldest</option>
+              </select>
+            </div>
             <div class="movies movies__loading">
               <i class="fas fa-spinner movies__loading--spinner"></i>
             </div>

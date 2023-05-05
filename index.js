@@ -1,5 +1,15 @@
-async function main() {
-  const moviesEl = document.querySelector(".movies"); //selecting the .movies class
+const moviesEl = document.querySelector(".movies");
+const searchForm = document.querySelector("#search__form");
+const searchIcon = document.getElementById("search-icon");
+
+let data = [];
+
+async function main(filter) {
+  if (filter === "OLD_TO_NEW") {
+    data.sort((a, b) => a.release_date - b.release_date);
+  } else if (filter === "NEW_TO_OLD") {
+    data.sort((a, b) => b.release_date - a.release_date);
+  }
 
   // Function to render movies data to the DOM
   const renderMovies = (data) => {
@@ -32,11 +42,10 @@ async function main() {
     const response = await fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=efb48bf9762efb858b54c3ebab5b98b7"
     );
-    const data = await response.json();
+    data = await response.json(); // Assign fetched data to the data variable
     console.log(data);
     if (data.results) {
       renderMovies(data.results);
-      console.log(`Mapping movie ${data.original_title}`);
     }
   };
 
@@ -53,19 +62,21 @@ async function main() {
       const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=efb48bf9762efb858b54c3ebab5b98b7&query=${query}`
       );
-      const data = await response.json();
+      data = await response.json(); // Assign fetched data to the data variable
       console.log(data);
       if (data.results) {
         renderMovies(data.results);
-        console.log(`Mapping movie ${data.original_title}`);
       }
     }
   };
 
+  function filterMovies(event) {
+    main(event.target.value);
+  }
+
   // Event listener for search form submission
-  const searchForm = document.querySelector("#search__form");
   searchForm.addEventListener("submit", searchMovie);
-  const searchIcon = document.getElementById("search-icon");
+
   searchIcon.addEventListener("click", searchMovie);
 
   // Fetch popular movies data on page load
