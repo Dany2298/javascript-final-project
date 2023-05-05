@@ -1,15 +1,27 @@
 const moviesEl = document.querySelector(".movies");
 const searchForm = document.querySelector("#search__form");
 const searchIcon = document.getElementById("search-icon");
-
 let data = [];
 
 async function main(filter) {
-  if (filter === "OLD_TO_NEW") {
-    data.sort((a, b) => a.release_date - b.release_date);
-  } else if (filter === "NEW_TO_OLD") {
-    data.sort((a, b) => b.release_date - a.release_date);
-  }
+  const sortData = () => {
+    if (filter === "OLD_TO_NEW") {
+      data.results.sort(
+        (a, b) => new Date(a.release_date) - new Date(b.release_date)
+      );
+    } else if (filter === "NEW_TO_OLD") {
+      data.results.sort(
+        (a, b) => new Date(b.release_date) - new Date(a.release_date)
+      );
+    }
+  };
+  const fetchPopularMovies = async () => {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=efb48bf9762efb858b54c3ebab5b98b7"
+    );
+    data = await response.json(); // Assign fetched data to the data variable
+    renderMovies(data.results);
+  };
 
   // Function to render movies data to the DOM
   const renderMovies = (data) => {
@@ -36,19 +48,6 @@ async function main(filter) {
     </div>`;
   };
 
-  // Function to fetch popular movies data
-  const fetchPopularMovies = async () => {
-    showLoadingState(); // Show loading state
-    const response = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=efb48bf9762efb858b54c3ebab5b98b7"
-    );
-    data = await response.json(); // Assign fetched data to the data variable
-    console.log(data);
-    if (data.results) {
-      renderMovies(data.results);
-    }
-  };
-
   // Function to search movies data by title
   const searchMovie = async (event) => {
     if (event) {
@@ -63,7 +62,6 @@ async function main(filter) {
         `https://api.themoviedb.org/3/search/movie?api_key=efb48bf9762efb858b54c3ebab5b98b7&query=${query}`
       );
       data = await response.json(); // Assign fetched data to the data variable
-      console.log(data);
       if (data.results) {
         renderMovies(data.results);
       }
@@ -77,6 +75,8 @@ async function main(filter) {
 
   // Fetch popular movies data on page load
   await fetchPopularMovies();
+  sortData();
+  renderMovies(data.results);
 }
 
 function filterMovies(event) {
