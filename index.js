@@ -80,7 +80,8 @@ async function main(filter) {
 }
 
 function filterMovies(event) {
-  event.target.value;
+  const filter = event.target.value;
+  main(filter);
 }
 
 main();
