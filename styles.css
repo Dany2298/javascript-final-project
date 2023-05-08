@@ -253,4 +253,7 @@ select {
   .nav__links {
     display: none;
   }
+  select {
+    margin-top: 24px;
+  }
 }
