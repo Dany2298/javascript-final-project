@@ -31,7 +31,7 @@ async function main(filter) {
     moviesEl.innerHTML = data
       .slice(0, 8)
       .filter(
-        (movie) => movie.poster_path !== null && movie.poster_path !== undefined
+        (movie) => movie.poster_path !== null && movie.poster_path !== undefined //remove the movies from the data array that have a poster_path value of null or undefined
       )
       .map(
         (movie) =>
